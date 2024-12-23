@@ -4,18 +4,58 @@ import markdown2
 import json
 import io
 
+default_fields = {
+    "info" : {
+        "name": "Bhanwar Preet Singh",
+        "number": "(416)-832-1695",
+        "address": "Toronto, ON",
+        "email_link": "bhanwar.bps86@gmail.com",
+        "linkedin_link": "linkedin.com/in/bhanwar-singh",
+        "Personal_site" : "bhanwar89.github.io",
+        "github" : "github.com/Bhanwar89",
+    },
+        "education": {
+        "s1": {
+            "name": "Loyalist College",
+            "course": "Ontario College Graduate Certificate in AI and Data Science",
+            "location": "Toronto, ON",
+            "GradDate": "Aug 2024"
+        },
+        "s2": {
+            "name": "SGTB Institute of Management and Information Tech",
+            "course": "BCA - Bachelor of Computer Application",
+            "location": "New Delhi, India",
+            "GradDate": "Apr 2021"
+        }
+    },
+    "certificates": [
+        "Deep Learning Specialization - Coursera",
+        "AWS Certified Machine Learning - LinkedIn Learning",
+        "Tableau Essential Learning - LinkedIn Learning"
+    ]
+}
+
+workinfo_default = {
+        "workExp": {
+        "companyName": "WIN Home Inspection",
+        "location": "New Delhi, India",
+        "jobTitle": "Data Engineer",
+        "timeFrame": "Nov 2019 - Jan 2020",
+        }
+}
+
 class PDF(FPDF):
-    def name(self, fields):
+    def name(self, info):
         self.add_page()
         self.set_font("helvetica", "B", 19)
-        self.cell(0, 10, fields["name"], align="C")
+        self.cell(0, 10, info["name"], align="C")
         self.ln(10)
 
-    def infoSec(self, fields):
+    def infoSec(self, info):
         self.set_font("helvetica", "I", 10)
         self.cell(10)
-        self.cell(text=f'{fields["address"]} | {fields["number"]} | ', align="C")
-        self.write_html(f'<a href = " mailto : {fields["email_link"]} " > {fields["email_link"]} </a> | <a href = " {fields["linkedin_link"]} " > {fields["linkedin_link"]} </a>')
+        self.cell(text=f'{info["address"]} | {info["number"]} | ', align="C")
+        self.write_html(f'<a href = " mailto : {info["email_link"]} " > {info["email_link"]} </a> | <a href = " {info["linkedin_link"]} " > {info["linkedin_link"]} </a>')
         self.ln(1)
 
     def add_section_line(self):
@@ -94,16 +134,16 @@ class PDF(FPDF):
         self.add_html_text('\n'.join([f"- {cert}" for cert in certificates]))
 
 def generate_pdf(data):
-
     fields = data['fields']
     workExp = data['workExp']
     projectExp = data['projectExp']
-    education_data = data['education']
-    certificates = data['certificates']
+    info = default_fields["info"]
+    education_data = default_fields['education']
+    certificates = default_fields["certificates"]
 
     pdf = PDF()
-    pdf.name(fields)
-    pdf.infoSec(fields)
+    pdf.name(info)
+    pdf.infoSec(info)
     pdf.summary(fields)
     pdf.tech_skills(fields)
     pdf.work_experience(workExp)

@@ -3,34 +3,8 @@ from genResume import generate_pdf
 import json
 import pyperclip
 
-
-
-st.title('Generate PDF from Data')
-data = st.text_area("Add your JSON here")
-
-if st.button("Generate PDF"):
-    
-    json_data = json.loads(data)
-
-    pdf_buffer = generate_pdf(json_data)
-
-    st.download_button(
-            label="Download PDF",
-            data=pdf_buffer,
-            file_name="Generated_Resume.pdf",
-            mime="application/pdf"
-    )
-
-st.write("Copy the Simple JSON from here")
-st.json({
+sample_format = {
     "fields": {
-        "name": "Bhanwar Preet Singh",
-        "number": "(416)-832-1695",
-        "address": "Toronto, ON",
-        "email_link": "bhanwar.bps86@gmail.com",
-        "linkedin_link": "linkedin.com/in/bhanwar-singh",
-        "Personal_site" : "bhanwar89.github.io",
-        "github" : "github.com/Bhanwar89",
         "Summary": "**Machine Learning and MLOps Engineer** with 1.5+ years of experience deploying and maintaining AI-driven solutions in production environments. Proficient in Python, TensorFlow, CI/CD, and cloud platforms (AWS, GCP) to enable scalable, reliable ML pipelines.",
         "Tech Skills": "- **Languages**: Python, R, Bash\n- **ML Frameworks**: TensorFlow, PyTorch, Scikit-learn, Keras\n- **DevOps & Cloud**: Docker, Kubernetes, Jenkins, GitHub, AWS, GCP, CI/CD (Airflow, MLflow, Kubeflow)\n- **Data Engineering & Databases**: MySQL, PostgreSQL, MongoDB, ETL, Data Pipelines\n- **Tools**: Tableau, Power BI, Hugging Face, Postman"
     },
@@ -57,32 +31,32 @@ st.json({
             "techStack": "**TensorFlow**, Transformer Models, AWS S3, MLflow",
             "projectDescription": "- Created a model using Transformer technology to translate text descriptions into music, showcasing ML integration for creative AI solutions.\n- Designed and monitored model performance using MLflow to track experiments and enhance reproducibility."
         }
-    },
-    "education": {
-        "s1": {
-            "name": "Loyalist College",
-            "course": "Ontario College Graduate Certificate in AI and Data Science",
-            "location": "Toronto, ON",
-            "GradDate": "Aug 2024"
-        },
-        "s2": {
-            "name": "SGTB Institute of Management and Information Tech",
-            "course": "BCA - Bachelor of Computer Application",
-            "location": "New Delhi, India",
-            "GradDate": "Apr 2021"
-        }
-    },
-    "certificates": [
-        "Deep Learning Specialization - Coursera",
-        "AWS Certified Machine Learning - LinkedIn Learning",
-        "Tableau Essential Learning - LinkedIn Learning"
-    ]
-}, expanded=False
-)
+    }
+}
+
+
+st.title('Generate PDF from Data')
+data = st.text_area("Add your JSON here")
+
+if st.button("Generate PDF"):
+    
+    json_data = json.loads(data)
+
+    pdf_buffer = generate_pdf(json_data)
+
+    st.download_button(
+            label="Download PDF",
+            data=pdf_buffer,
+            file_name="Generated_Resume.pdf",
+            mime="application/pdf"
+    )
+
+st.write("Copy the Simple JSON from here")
+st.json(sample_format, expanded=False)
 
 
 
-custom_prompt = """
+custom_prompt = f"""
 Your the hiring manager for the company and a person who's knows how the ATS system works. And your goal is to write a resume for me that make sures I will get an interview at the company.
 
 There some Rules and restriction to follow and keep in mind :
@@ -98,8 +72,12 @@ There some Rules and restriction to follow and keep in mind :
 9. While writing the Projects keep this in mind How write about the Projects :- (What you did and How you did it e.g. Framework, Technology, Tool. Example:- Data Engineering: Build a lager and custom Datasets by implementing fetcher and preprocessing units to periodically **retrieve** data)
 10. DON’T CHANGE INFO SUCH AS Name, number, address, email_link, linkedin_link, Personal_site, github, companyName, location, timeFrame, Education
 11. Keep the Experience 1 year in Summary
+12. there are only 3 section to keep in mind 
+    1. fields (”Summary”, “Tech Skills”)
+    2. workExp
+    3. projectExp
 
-MOST IMPORTANTLY OUTPUT JSON MUST BE THE SAME FORMAT AS THE EXAMPLE GIVEN  :- (  )
+MOST IMPORTANTLY OUTPUT JSON MUST BE THE SAME FORMAT AS THE EXAMPLE GIVEN  :- ( {sample_format}  )
 
 and Job Description (  )
 """
