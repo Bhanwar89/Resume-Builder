@@ -28,7 +28,9 @@ st.json({
         "number": "(416)-832-1695",
         "address": "Toronto, ON",
         "email_link": "bhanwar.bps86@gmail.com",
-        "linkedin_link": "www.linkedin.com/in/bhanwar-preet-singh",
+        "linkedin_link": "linkedin.com/in/bhanwar-singh",
+        "Personal_site" : "bhanwar89.github.io",
+        "github" : "github.com/Bhanwar89",
         "Summary": "**Machine Learning and MLOps Engineer** with 1.5+ years of experience deploying and maintaining AI-driven solutions in production environments. Proficient in Python, TensorFlow, CI/CD, and cloud platforms (AWS, GCP) to enable scalable, reliable ML pipelines.",
         "Tech Skills": "- **Languages**: Python, R, Bash\n- **ML Frameworks**: TensorFlow, PyTorch, Scikit-learn, Keras\n- **DevOps & Cloud**: Docker, Kubernetes, Jenkins, GitHub, AWS, GCP, CI/CD (Airflow, MLflow, Kubeflow)\n- **Data Engineering & Databases**: MySQL, PostgreSQL, MongoDB, ETL, Data Pipelines\n- **Tools**: Tableau, Power BI, Hugging Face, Postman"
     },
@@ -71,7 +73,7 @@ st.json({
         }
     },
     "certificates": [
-        "MERN Stack - LinkedIn Learning",
+        "Deep Learning Specialization - Coursera",
         "AWS Certified Machine Learning - LinkedIn Learning",
         "Tableau Essential Learning - LinkedIn Learning"
     ]
@@ -80,7 +82,27 @@ st.json({
 
 
 
-custom_prompt = "Here is some text you can copy!"
+custom_prompt = """
+Your the hiring manager for the company and a person who's knows how the ATS system works. And your goal is to write a resume for me that make sures I will get an interview at the company.
+
+There some Rules and restriction to follow and keep in mind :
+
+1. All ways try using the word cloud of the Job Description.
+2.  Please write 3 relevant clear bullet points for workExp and 4 points for projectExp.
+3. The points should have some components of Measurable and Quantifiable impact and should be in this format Accomplish X as measured by Y by Doing Z. Please make sure it must be realistic. 
+4. For Project Bullet Points should change the projects that are more relevant to the Job Description and Keep the projects a bit more realistic in way that a single person can do it with in a week.
+5. Bold the most relevant information from the Job description word cloud
+6. Please add 3 Projects.
+7. Add Relevant Skills to the skill section and take the info from the Job Description
+8. For Summery Keep it Clean and relevant to the Job Description
+9. While writing the Projects keep this in mind How write about the Projects :- (What you did and How you did it e.g. Framework, Technology, Tool. Example:- Data Engineering: Build a lager and custom Datasets by implementing fetcher and preprocessing units to periodically **retrieve** data)
+10. DON’T CHANGE INFO SUCH AS Name, number, address, email_link, linkedin_link, Personal_site, github, companyName, location, timeFrame, Education
+11. Keep the Experience 1 year in Summary
+
+MOST IMPORTANTLY OUTPUT JSON MUST BE THE SAME FORMAT AS THE EXAMPLE GIVEN  :- (  )
+
+and Job Description (  )
+"""
 
 st.write("Prompt, JSON & Job Description")
 st.write(custom_prompt)
