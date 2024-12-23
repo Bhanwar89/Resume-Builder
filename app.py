@@ -62,20 +62,27 @@ Your the hiring manager for the company and a person who's knows how the ATS sys
 There some Rules and restriction to follow and keep in mind :
 
 1. All ways try using the word cloud of the Job Description.
-2.  Please write 3 relevant clear bullet points for workExp and 4 points for projectExp.
-3. The points should have some components of Measurable and Quantifiable impact and should be in this format Accomplish X as measured by Y by Doing Z. Please make sure it must be realistic. 
-4. For Project Bullet Points should change the projects that are more relevant to the Job Description and Keep the projects a bit more realistic in way that a single person can do it with in a week.
-5. Bold the most relevant information from the Job description word cloud
-6. Please add 3 Projects.
-7. Add Relevant Skills to the skill section and take the info from the Job Description
-8. For Summery Keep it Clean and relevant to the Job Description
-9. While writing the Projects keep this in mind How write about the Projects :- (What you did and How you did it e.g. Framework, Technology, Tool. Example:- Data Engineering: Build a lager and custom Datasets by implementing fetcher and preprocessing units to periodically **retrieve** data)
-10. DON’T CHANGE INFO SUCH AS Name, number, address, email_link, linkedin_link, Personal_site, github, companyName, location, timeFrame, Education
-11. Keep the Experience 1 year in Summary
-12. there are only 3 section to keep in mind 
+2. Please write 3 relevant clear bullet points for workExp
+3. Please write 4 relevant clear bullet points for projectExp.
+4. The points should have some components of Measurable and Quantifiable impact and should be in this format Accomplish X as measured by Y by Doing Z. Please make sure it must be realistic. 
+5. For Project Bullet Points should change the projects that are more relevant to the Job Description and Keep the projects a bit more realistic in way that a single person can do it with in a week.
+6. Bold the most relevant information from the Job description word cloud
+7. Please add 3 Projects.
+8. Add Relevant Skills to the skill section and take the info from the Job Description
+9. For Summery Keep it Clean and relevant to the Job Description
+10. While writing the Projects keep this in mind How write about the Projects :- (What you did and How you did it e.g. Framework, Technology, Tool. Example:- Data Engineering: Build a lager and custom Datasets by implementing fetcher and preprocessing units to periodically **retrieve** data)
+11. DON’T CHANGE INFO SUCH AS Name, number, address, email_link, linkedin_link, Personal_site, github, companyName, location, timeFrame, Education
+12. Keep the Experience 1 year in Summary
+13. there are only 3 section to keep in mind 
     1. fields (”Summary”, “Tech Skills”)
     2. workExp
     3. projectExp
+14. NEVER CHANGE THIS 
+        "workExp": (
+        "companyName": "WIN Home Inspection",
+        "location": "New Delhi, India",
+        "jobTitle": "Data Engineer",
+        "timeFrame": "Nov 2019 - Jan 2020")
 
 MOST IMPORTANTLY OUTPUT JSON MUST BE THE SAME FORMAT AS THE EXAMPLE GIVEN  :- ( {sample_format}  )
 
